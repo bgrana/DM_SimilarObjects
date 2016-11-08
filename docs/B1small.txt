@@ -1,0 +1,48 @@
+              ancient guidepost here was the so 
+called Integral Hodge Conjecture. It has
+              turned out that the 
+Integral Hodge Conjecture is false in some instances. The
+              extent 
+of its failure is poorly understood, so the principal investigator
+              
+and a PhD student are working to clarify this.
+
+To a significant extent,
+              the value of basic research in algebraic 
+geometry results from the tendency
+              of mathematicians to reduce 
+problems in various other fields of mathematics
+              to problems in 
+algebraic geometry. This tendency is due to the ultimate
+              
+simplicity of algebraic geometry, where remarkably effective 
+approaches to
+              certain geometric problems have been developed
+with minimal reliance on
+              infinite processes. While the initial 
+translation of a problem from the
+              physical world into mathematics 
+frequently involves limits, derivatives,
+              integrals, and further 
+notions involving infinite processes which go well
+              beyond ordinary 
+calculus, mathematicians have learned to search for hidden
+              aspects 
+of these problems which are essentially of an algebraic or finite
+              
+nature.  Neither the task of translating real world phenomena into
+              
+mathematical problems, the task of discovering a hidden algebraic
+core in a
+              problem formulated using infinite processes, nor the 
+task of solving this
+              core problem using algebraic geometry is
+often easy. Nonetheless, this lengthy
+              process has led to profound 
+insights.  For example, algebraic geometry and
+              some of the 
+algebraic varieties studied by the principal investigator are of
+              
+great interest to physicists in their current attempts to unify 
+quantum
+              mechanics with the theory of gravity.  
