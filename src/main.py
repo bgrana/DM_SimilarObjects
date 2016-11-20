@@ -82,5 +82,4 @@ if  __name__ =='__main__':
     parser.add_argument('--th', default=0.8, type=float, help='Threshold of confidence for similarity. Defaults to 0.8.')
 
     args = vars(parser.parse_args())
-    print(args)
     main(args)
