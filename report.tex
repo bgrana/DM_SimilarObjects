@@ -1,0 +1,65 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{listings}
+\usepackage[toc,page]{appendix}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{float}
+
+%opening
+\title{Data Mining: Similar Objects}
+\author{Braulio Grana Guti\'errez \and Adri\'an Ram\'irez del R\'io}
+
+\begin{document}
+
+\maketitle
+
+\section{Description}
+For this assignment we had to implement the stages of finding textually similar objects based on Jaccard similarity. In order to achieve this, we implemented shingling, minhashing and, as a bonus task, locality-sensitive hashing. Our solution was implemented using Python3.
+
+\subsection{Shingling}
+In order to compute the shingles for a document we created a class named \emph{Shingling} which receives the shigles'0 size in the constructor and defined a method called \emph{transform} that iterates over the document creating the shingles using the following formula:
+\begin{center}{\emph{shingle = doc[i : i + shingle\_size]}} \end{center}
+where \emph{i} has a step of 1. Then, we compute their hash values using python3 integrated hash function.
+
+Finally, we implemented a function \emph{compare\_shingles} that returns the Jaccard similarity between two shingles.
+
+\subsection{Minhashing}
+We implemented a class called \emph{MinHashing} that takes one parameter in its constructor, the number of hash functions to be applied to the shingles. The hash functions generated are as follows:
+\begin{center} \emph{hash = ($a \cdot shingle$ + b) mod c} \end{center}
+where \emph{a} and \emph{b} are random integer, \emph{shingle} is a hashed shingle and \emph{c} is a large prime number, in our case \emph{c = 4294967311}.
+
+A method called \emph{transform} applies each generated hash function to each shingle and then selects the lowest hash for each shingle which becomes the signature of the document.
+
+Additionally, we implemented a \emph{compare\_signatures} function that calculates the percentage in which two document signatures are similar.
+
+\subsection{Locality-Sensitive Hashing}
+For this part we implemented a class named \emph{LSH} that generates candidate pairs of signatures that are possibly similar and should be compared. This class' constructor takes two parameters: the list of signatures, and the threshold at which we considerate a pair of signatures as candidates.
+
+Using the threshold we calculate the number of bands in which we will divide the signature matrix by solving the following equations system:
+\begin{center}
+$signature\_size = r \cdot b$ \\
+$threshold = (1/b)^{1/r}$
+\end{center}
+where \emph{signature\_size} and \emph{threshold} are known constants, \emph{b} is the number of bands and \emph{r} the number of rows per band.
+
+Once we have the matrix divided in bands, we apply a hashing function (in our case the norm) to every signature part in each band. If the percentage of bands of two signatures that computed to the same hash value (bucket) is greater than the threshold (times the number of bands) we consider the signatures as a candidate pair.
+
+\section{Instructions}
+In order to execute our solution certain libraries need to be installed beforehand. To install them, run the following commands (it is possible that you will need admin access):
+
+\begin{lstlisting}[language=bash]
+$ apt-get install python3 python3-pip
+$ pip3 install scipy numpy
+\end{lstlisting}
+
+To run the code, simply go to the project folder and run:
+\begin{lstlisting}[language=bash]
+$ python3 src/main --dir DATASET_DIR \
+--n SHINGLE_SIZE \
+--k SIGNATURE_SIZE \
+--th SIMILARITY_THRESHOLD
+\end{lstlisting}
+
+\end{document}
